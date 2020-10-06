@@ -1,11 +1,17 @@
 #!/usr/bin/env ruby
+require 'table_print'
 require_relative 'workspace'
 
 def main
   puts "Welcome to the Ada Slack CLI!"
   workspace = Workspace.new
 
-  # TODO project
+  puts "There are #{number_channels} channels in this workspace"
+  puts "There are #{number_users} users in this workspace"
+
+  puts "What would you like to do?"
+  puts "Options ('List Users', 'List Channels' 'Quit'). Please type your response below."
+  user_input = gets.chomp
 
   puts "Thank you for using the Ada Slack CLI"
 end

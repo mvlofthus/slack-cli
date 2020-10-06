@@ -1,3 +1,4 @@
 class Recipient
 
+
 end
