@@ -4,34 +4,34 @@ require 'dotenv'
 Dotenv.load
 
 class Recipient
-  attr_reader :id #name ?? :user_name, :user_id, :channel_name, :channel_id
+  attr_reader :id, :name #name ?? :user_name, :user_id, :channel_name, :channel_id
 
-  def initialize(id)
+  def initialize(slack_id, name)
     #validate
-    @id = id
+    @slack_id = slack_id
+    @name = name
   end
 
 
-  def self.get (url)
-    response = HTTParty.get(url, query: {
-        token: ENV["SLACK_TOKEN"],
-        format: 'json'
-    }
-    )
-
-    unless response.code == 200
-      raise ArgumentError, 'Error in request'
-    end
-
-    return response
-  end
+  # def self.get (url)
+  #   response = HTTParty.get(url, query: {
+  #       token: ENV["SLACK_TOKEN"],
+  #   }
+  #   )
+  #
+  #   unless response.code == 200
+  #     raise ArgumentError, 'Error in request'
+  #   end
+  #
+  #   return response
+  # end
 
 
 
 
   private
 
-  def self.list
+  def self.load_all
     raise NotImplementedError, 'Implement me in a child class'
   end
 
