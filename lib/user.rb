@@ -24,11 +24,11 @@ class User < Recipient
     # url = "https://slack.com/api/users.list"
     # response = self.get(url, query:
     #     {
-    #         token: "xoxb-1222171918129-1435133326080-m7Gx3zpPOoFpTcqts6B4CIGK"
+    #         token:
     #     }
     # )
     response = HTTParty.get("https://slack.com/api/users.list", query: {
-        token: "xoxb-1222171918129-1435133326080-m7Gx3zpPOoFpTcqts6B4CIGK"
+        token: ENV["SLACK_TOKEN"]
     }
     )
 

@@ -16,7 +16,7 @@ class Recipient
 
   def self.get (url, query)
     response = HTTParty.get(url, query: {
-        token: "xoxp-1222171918129-1247103087989-1411516914675-c0bbd2ed4a7aa434776028b2164bbfba",
+        token: ENV["SLACK_TOKEN"],
         format: 'json'
     }
     )
