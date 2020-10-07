@@ -24,12 +24,12 @@ def main
     puts options
     user_input = gets.chomp.downcase
 
-  case user_input
-  when "1", "list users"
-    tp workspace.users
-  when "2", "list channels"
-    tp workspace.channels
-  end
+    case user_input
+    when "1", "list users"
+      tp workspace.users
+    when "2", "list channels"
+      tp workspace.channels
+    end
   end
 
   puts "Thank you for using the Ada Slack CLI"
