@@ -11,7 +11,7 @@ class User < Recipient
   attr_reader :slack_id, :name, :real_name
 
   def initialize (slack_id, name, real_name)
-    super(slack_id,name)
+    super(slack_id, name)
     @real_name = real_name
   end
 

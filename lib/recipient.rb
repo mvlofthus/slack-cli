@@ -4,11 +4,12 @@ require 'dotenv'
 Dotenv.load
 
 class Recipient
-  attr_reader :id #name ?? :user_name, :user_id, :channel_name, :channel_id
+  attr_reader :slack_id, :name #name ?? :user_name, :user_id, :channel_name, :channel_id
 
-  def initialize(id)
+  def initialize(slack_id, name)
     #validate
-    @id = id
+    @slack_id = slack_id
+    @name = name
     end
 
   def self.get (url)
