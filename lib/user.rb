@@ -1,4 +1,4 @@
-equire 'httparty'
+require 'httparty'
 require 'dotenv'
 require 'table_print'
 
