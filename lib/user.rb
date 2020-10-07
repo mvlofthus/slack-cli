@@ -44,7 +44,7 @@ class User < Recipient
       user_array << temp_user
     end
 
-    tp user_array
+    # tp user_array
     return user_array
 
 
@@ -53,4 +53,4 @@ class User < Recipient
 
 end
 
-User.load_all
+# User.load_all
