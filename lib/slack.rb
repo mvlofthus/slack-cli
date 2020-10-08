@@ -17,8 +17,6 @@ def main
 
   puts
   puts "*" * 40
-  print workspace.users
-  puts "*" * 40
   # puts options
 
   user_input = nil
@@ -32,16 +30,17 @@ def main
   when "1", "list users"
     tp workspace.users
   when "2", "list channels"
-
     tp workspace.channels
   when "3", "select user"
     puts "Please enter User Name or ID"
     user_id = gets.chomp.downcase
     selected_recipient << user_id
+    workspace.select_user(user_id)
   when "4", "select channel"
     puts "Please enter Chanel Name or ID"
     channel_id = gets.chomp.downcase
     selected_recipient << channel_id
+    workspace.select_channel(channel_id)
   when "5", "details"
     if selected_recipient.length < 2
       puts selected_recipient
