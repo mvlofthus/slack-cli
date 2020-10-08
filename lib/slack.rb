@@ -12,7 +12,7 @@ def main
   def options
     puts "\n\nWhat would you like to do?\n"
     puts "Choose the number that corresponds to the following options:"
-    puts "[1]'List Users'\n[2]'List Channels'\n[3] 'Quit'"
+    puts "[1]'List Users'\n[2]'List Channels'\n[3]'Select User'\n[4]'Select Channel'\n[5]'Details'\n[6]'Quit'"
   end
 
   puts
@@ -20,7 +20,9 @@ def main
   # puts options
 
   user_input = nil
-  until user_input == "3" || user_input == "quit"
+
+  selected_recipient = ["no recipient selected"]
+  until user_input == "6" || user_input == "quit"
     puts options
     user_input = gets.chomp.downcase
 
@@ -28,10 +30,20 @@ def main
   when "1", "list users"
     tp workspace.users
   when "2", "list channels"
-    tp workspace.channels
-  end
-  end
 
+    tp workspace.channels
+  when "3", "select user"
+    puts "Please enter User Name or ID"
+    user_id = gets.chomp.downcase
+    selected_recipient << user_id
+  when "4", "select channel"
+    puts "Please enter Chanell Name or ID"
+    channel_id = gets.chomp.downcase
+    selected_recipient << channel_id
+  when "5", "details"
+    puts selected_recipient.last
+  end
+    end
   puts "Thank you for using the Ada Slack CLI"
   end
 
