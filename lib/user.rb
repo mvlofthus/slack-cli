@@ -18,10 +18,7 @@ class User < Recipient
   end
 
   def self.list
-    response = HTTParty.get("https://slack.com/api/users.list", query: {
-        token: ENV["SLACK_TOKEN"]
-    }
-    )
+    response = self.get("https://slack.com/api/users.list")
 
     user_array = []
     response["members"].each do |user|

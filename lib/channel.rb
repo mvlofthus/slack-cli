@@ -17,10 +17,7 @@ class Channel < Recipient
   end
 
   def self.list
-    response = HTTParty.get("https://slack.com/api/conversations.list", query: {
-        token: ENV["SLACK_TOKEN"]
-    }
-    )
+    response = self.get("https://slack.com/api/conversations.list")
 
     channel_array = []
 

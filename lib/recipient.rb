@@ -9,18 +9,17 @@ class Recipient
   def initialize(slack_id, name)
     @slack_id = slack_id
     @name = name
-    end
+  end
 
-  def self.get (url)
+  def self.get(url)
     response = HTTParty.get(url, query: {
-        token: ENV["SLACK_TOKEN"],
-        format: 'json'
+        token: ENV["SLACK_TOKEN"]
     }
     )
 
     unless response.code == 200
       raise ArgumentError, 'Error in request'
-      end
+    end
 
     return response
   end
@@ -49,4 +48,3 @@ class Recipient
     raise NotImplementedError, 'Implement me in a child class'
   end
 end
-
