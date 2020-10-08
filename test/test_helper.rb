@@ -23,4 +23,12 @@ VCR.configure do |config|
   config.filter_sensitive_data("<SLACK_TOKEN>") do
     ENV["SLACK_TOKEN"]
   end
+
+  #Require_relative your lib files here
+  require_relative '../lib/user.rb'
+  require_relative '../lib/channel.rb'
+  require_relative '../lib/recipient.rb'
+  require_relative '../lib/workspace.rb'
+  require_relative '../lib/slack.rb'
+
 end
