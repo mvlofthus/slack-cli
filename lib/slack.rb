@@ -17,6 +17,8 @@ def main
 
   puts
   puts "*" * 40
+  print workspace.users
+  puts "*" * 40
   # puts options
 
   user_input = nil
@@ -37,11 +39,15 @@ def main
     user_id = gets.chomp.downcase
     selected_recipient << user_id
   when "4", "select channel"
-    puts "Please enter Chanell Name or ID"
+    puts "Please enter Chanel Name or ID"
     channel_id = gets.chomp.downcase
     selected_recipient << channel_id
   when "5", "details"
-    puts selected_recipient.last
+    if selected_recipient.length < 2
+      puts selected_recipient
+    else
+      puts workspace.find_recipient(selected_recipient.last)
+    end
   end
     end
 
