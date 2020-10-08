@@ -45,6 +45,13 @@ def main
         #### puts workspace.find_recipient(workspace.selected_recipient)
         workspace.find_details
       end
+    when "6", "send message"
+      if workspace.selected_recipient == nil
+        puts "Please select a channel or user first to view details"
+      else
+        puts "Send a message!"
+        message = gets.chomp
+        workspace.send_msg(message, )
     end
   end
 
