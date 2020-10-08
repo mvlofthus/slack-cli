@@ -1,5 +1,6 @@
 require_relative 'test_helper'
 
+
 describe User do
   describe 'User instantiation' do
     before do
@@ -16,5 +17,11 @@ describe User do
       expect(@user).must_be_kind_of User
     end
 
-  end
+    it 'user.list is an instance of an array'
+    expect(User.list).must_be_kind_of Array
+    expect(User.length).must_be_close_to 1
 end
+
+
+end
+
