@@ -12,7 +12,7 @@ def main
   def options
     puts "\n\nWhat would you like to do?\n"
     puts "Choose the number that corresponds to the following options:"
-    puts "[1]'List Users'\n[2]'List Channels'\n[3]'Select User'\n[4]'Select Channel'\n[5]'Details'\n[6]'Quit'"
+    puts "[1]'List Users'\n[2]'List Channels'\n[3]'Select User'\n[4]'Select Channel'\n[5]'Details'\n[6]'Send Message'\n[7]'Quit'"
   end
 
   puts
@@ -21,7 +21,7 @@ def main
 
   user_input = nil
 
-  until user_input == "6" || user_input == "quit"
+  until user_input == "7" || user_input == "quit"
     puts options
     user_input = gets.chomp.downcase
 
@@ -51,12 +51,12 @@ def main
       else
         puts "Send a message!"
         message = gets.chomp
-        workspace.send_msg(message, )
-    end
+        workspace.send_msg(message)
+      end
   end
 
   puts "Thank you for using the Ada Slack CLI"
   end
 
-
+end
 main if __FILE__ == $PROGRAM_NAME

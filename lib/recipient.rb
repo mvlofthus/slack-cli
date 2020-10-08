@@ -25,28 +25,17 @@ class Recipient
     return response
     end
 
-  def self.send_msg(message, channel)
+  def self.send_msg(message, id)
     response = HTTParty.post("https://slack.com/api/chat.postMessage",
     body: {
         token: ENV["SLACK_TOKEN"],
         text: message,
-        channel: channel
+        channel: id
     },
     headers: { 'Content-Type' => 'application/x-www-form-urlencoded'}
     )
 
     return response.code == 200 && response.parsed_response["ok"]
-  end
-end
-
-
-
-                             }
-
-
-
-    )
-
   end
 
 

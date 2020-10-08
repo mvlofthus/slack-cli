@@ -52,6 +52,10 @@ class Workspace
     end
   end
 
+  def send_msg(message)
+    Recipient.send_msg(message, @selected_recipient.slack_id)
+  end
+
 
 
   # def find_recipient(input)
