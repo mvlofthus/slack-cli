@@ -46,7 +46,7 @@ def main
     if selected_recipient.length < 2
       puts selected_recipient
     else
-      puts workspace.find_recipient(selected_recipient.last)
+      puts workspace.find_recipient(selected_recipient.last).details
     end
   end
     end
