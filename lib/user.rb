@@ -8,12 +8,13 @@ Dotenv.load
 
 class User < Recipient
 
-  attr_reader :slack_id, :name, :real_name, :status_emoji
+  attr_reader :slack_id, :username, :real_name, :status_emoji
 
-  def initialize (slack_id, name, real_name, status_emoji)
+  def initialize (slack_id, username, real_name, status_emoji, name)
     super(slack_id, name)
     @real_name = real_name
     @status_emoji = status_emoji
+    @username = username
   end
 
 
@@ -26,12 +27,13 @@ class User < Recipient
     user_array = []
     response["members"].each do |user|
       slack_id = user["id"]
-      name = user["name"]
+      username = user["name"]
       real_name = user["profile"]["real_name"]
       status_emoji = user["profile"]["status_emoji"]
+      name = user["name"]
 
 
-      temp_user = self.new(slack_id, name, real_name, status_emoji)
+      temp_user = self.new(slack_id, username, real_name, status_emoji, name)
       user_array << temp_user
     end
     return user_array
