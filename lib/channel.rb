@@ -12,7 +12,6 @@ class Channel < Recipient
 
   def initialize (slack_id, name, topic, member_count)
     super(slack_id, name)
-
     @topic = topic
     @member_count = member_count
   end
@@ -36,15 +35,11 @@ class Channel < Recipient
     end
 
     return channel_array
-
   end
 
   def details
-    puts "Channel found, Here's the scoop!\n  Slack ID: #{slack_id}\n  Name: #{name}\n  Topic: #{topic}\n  Member Count: #{member_count}"
+    puts "Channel found, here's the scoop!\n  Slack ID: #{slack_id}\n  Name: #{name}\n  Topic: #{topic}\n  Member Count: #{member_count}"
   end
 
-  def send_message
-
-  end
 end
 

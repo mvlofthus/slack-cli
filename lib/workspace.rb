@@ -3,7 +3,6 @@ require 'dotenv'
 require_relative 'user'
 require_relative 'channel'
 
-
 Dotenv.load
 
 class Workspace
@@ -55,16 +54,6 @@ class Workspace
   def send_msg(message)
     Recipient.send_msg(message, @selected_recipient.slack_id)
   end
-
-
-
-  # def find_recipient(input)
-  #   if select_user(input) == "User does not exist" && select_channel(input) == "Channel does not exist"
-  #     return "Not found, please select a new recipient"
-  #   end
-  # end
-
-
 
 end
 
