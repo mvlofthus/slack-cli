@@ -1,7 +1,5 @@
 require_relative 'test_helper'
 
-require_relative 'test_helper'
-
 describe User do
   describe 'User instantiation' do
     before do
