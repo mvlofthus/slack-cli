@@ -39,37 +39,14 @@ class User < Recipient
     return user_array
   end
 
-  # def self.user_list
-  #   all_users = self.load_all
-  #
-  #   user_list = []
-  #
-  #   all_users.each do |user|
-  #     temp_user = {
-  #         "id" => user["id"],
-  #         "name" => user["name"],
-  #         "real_name" => user["profile"]["real_name"]
-  #     }
-  #
-  #     user_list << temp_user
-  #   end
-  #
-  #   return user_list
-  #
-  # end
-
-
-
-
-
-  def self.details
-    if self.slack_id.select(identifier) || self["name"].select(identifier)
-      return ""
-    else
-      return "that is not a valid selection"
-    end
-
+  def details
+    puts "User found, here's the scoop!\n  Username: #{name} \n  Slack ID: #{slack_id}\n  Real Name: #{real_name}\n  Status Emoji: #{status_emoji}"
   end
+
+
+  
+
+
 
 
 end

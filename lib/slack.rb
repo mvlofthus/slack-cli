@@ -21,34 +21,32 @@ def main
 
   user_input = nil
 
-  selected_recipient = ["no recipient selected"]
   until user_input == "6" || user_input == "quit"
     puts options
     user_input = gets.chomp.downcase
 
-  case user_input
-  when "1", "list users"
-    tp workspace.users
-  when "2", "list channels"
-    tp workspace.channels
-  when "3", "select user"
-    puts "Please enter User Name or ID"
-    user_id = gets.chomp.downcase
-    selected_recipient << user_id
-    workspace.select_user(user_id)
-  when "4", "select channel"
-    puts "Please enter Chanel Name or ID"
-    channel_id = gets.chomp.downcase
-    selected_recipient << channel_id
-    workspace.select_channel(channel_id)
-  when "5", "details"
-    if selected_recipient.length < 2
-      puts selected_recipient
-    else
-      puts workspace.find_recipient(selected_recipient.last)
+    case user_input
+    when "1", "list users"
+      workspace.list_users
+    when "2", "list channels"
+      workspace.list_channels
+    when "3", "select user"
+      puts "Please enter User Name or ID"
+      user_identifier = gets.chomp.downcase
+      workspace.select_user(user_identifier)
+    when "4", "select channel"
+      puts "Please enter Chanel Name or ID"
+      channel_identifier = gets.chomp.downcase
+      workspace.select_channel(channel_identifier)
+    when "5", "details"
+      if workspace.selected_recipient == nil
+        puts "Please select a channel or user first to view details"
+      else
+        #### puts workspace.find_recipient(workspace.selected_recipient)
+        workspace.find_details
+      end
     end
   end
-    end
 
   puts "Thank you for using the Ada Slack CLI"
   end
