@@ -44,6 +44,7 @@ def main
     puts selected_recipient.last
   end
     end
+
   puts "Thank you for using the Ada Slack CLI"
   end
 

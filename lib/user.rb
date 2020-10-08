@@ -8,49 +8,66 @@ Dotenv.load
 
 class User < Recipient
 
-  attr_reader :slack_id, :name, :real_name
+  attr_reader :slack_id, :name, :real_name, :status_emoji
 
-  def initialize (slack_id, name, real_name)
+  def initialize (slack_id, name, real_name, status_emoji)
     super(slack_id, name)
     @real_name = real_name
+    @status_emoji = status_emoji
   end
 
-  # def self.get (url, query)
-  #   HTTParty.get(url, query)
-  #   # return new_query
-  # end
 
-  def self.load_all
-    # url = "https://slack.com/api/users.list"
-    # response = self.get(url, query:
-    #     {
-    #         token:
-    #     }
-    # )
+  def self.list
     response = HTTParty.get("https://slack.com/api/users.list", query: {
         token: ENV["SLACK_TOKEN"]
     }
     )
 
     user_array = []
-
     response["members"].each do |user|
       slack_id = user["id"]
       name = user["name"]
       real_name = user["profile"]["real_name"]
+      status_emoji = user["profile"]["status_emoji"]
 
 
-      temp_user = self.new(slack_id, name, real_name)
+      temp_user = self.new(slack_id, name, real_name, status_emoji)
       user_array << temp_user
     end
-
-    # tp user_array
     return user_array
+  end
 
+  # def self.user_list
+  #   all_users = self.load_all
+  #
+  #   user_list = []
+  #
+  #   all_users.each do |user|
+  #     temp_user = {
+  #         "id" => user["id"],
+  #         "name" => user["name"],
+  #         "real_name" => user["profile"]["real_name"]
+  #     }
+  #
+  #     user_list << temp_user
+  #   end
+  #
+  #   return user_list
+  #
+  # end
+
+
+
+
+
+  def self.details(identifier)
+    if response["id"].select(identifier) || response["name"].select(identifier)
+      return ""
+    else
+      return "that is not a valid selection"
+    end
 
   end
 
 
 end
-
-# User.load_all
