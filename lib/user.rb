@@ -62,8 +62,8 @@ class User < Recipient
 
 
 
-  def self.details(identifier)
-    if response["id"].select(identifier) || response["name"].select(identifier)
+  def self.details
+    if self.slack_id.select(identifier) || self["name"].select(identifier)
       return ""
     else
       return "that is not a valid selection"
