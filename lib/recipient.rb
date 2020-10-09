@@ -17,8 +17,8 @@ class Recipient
     }
     )
 
-    unless response.code == 200
-      raise ArgumentError, 'Error in request'
+    unless response.code == 200 && response.parsed_response["ok"]
+      raise ArgumentError#, #"SlackApiError. Reason: #{response["error"]}"
     end
 
     return response
@@ -33,8 +33,6 @@ class Recipient
     },
     headers: { 'Content-Type' => 'application/x-www-form-urlencoded'}
     )
-
-    # return response.code == 200 && response.parsed_response["ok"]
 
     unless response.code == 200 && response.parsed_response["ok"]
       raise ArgumentError, "SlackApiError. Reason: #{response["error"]}"

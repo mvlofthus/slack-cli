@@ -40,6 +40,28 @@ describe Recipient do
     end
   end
 
+  describe 'private methods' do
 
+    it "will raise Argument error if Recipient.list is called" do
+      VCR.use_cassette("messages take 4") do
+        expect{Recipient.list}.must_raise NotImplementedError
+      end
+    end
+
+    it "will raise Argument error if Recipient.details is called" do
+      VCR.use_cassette("messages take 4") do
+        expect{Recipient.details}.must_raise NotImplementedError
+      end
+    end
+
+  describe 'failed SlackAPI request/post' do
+
+    it "Will raise an Argument error if Token is bogus" do
+      VCR.use_cassette("SlackAPI failed") do
+      expect{Recipient.get("https://slack.com/api/users.list")}.must_raise ArgumentError
+      end
+    end
+    end
+  end
 end
 
