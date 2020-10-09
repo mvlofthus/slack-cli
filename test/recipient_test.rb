@@ -56,7 +56,7 @@ describe Recipient do
 
   describe 'failed SlackAPI request/post' do
 
-    it "Will raise an Argument error if Token is bogus" do
+    it "Will raise an Argument error if Token is bogus" do #this will work if you give a bogus token in .env
       VCR.use_cassette("SlackAPI failed") do
       expect{Recipient.get("https://slack.com/api/users.list")}.must_raise ArgumentError
       end

@@ -46,9 +46,7 @@ class Workspace
   end
 
   def find_details
-    if @selected_recipient != nil
-      puts @selected_recipient.details
-    end
+    return @selected_recipient.details
   end
 
   def send_msg(message)

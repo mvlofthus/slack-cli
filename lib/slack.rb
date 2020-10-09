@@ -34,7 +34,7 @@ def main
       if workspace.selected_recipient == nil
         puts "Please select a channel or user first to view details"
       else
-        workspace.find_details
+        puts workspace.find_details
       end
     when "6", "send message"
       if workspace.selected_recipient == nil

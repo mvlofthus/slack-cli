@@ -18,7 +18,7 @@ class Recipient
     )
 
     unless response.code == 200 && response.parsed_response["ok"]
-      raise ArgumentError#, #"SlackApiError. Reason: #{response["error"]}"
+      raise ArgumentError, "SlackApiError. Reason: #{response["error"]}"
     end
 
     return response

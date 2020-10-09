@@ -29,7 +29,7 @@ describe User do
        it 'user.list is an instance of an array' do
         expect(@response).must_be_kind_of Array
         expect(@response.length).must_be_kind_of Integer
-        expect(@response.length).must_be_close_to 163
+        expect(@response.length).must_be_close_to 163  #passes at time of submission
        end
 
       it 'returns the correct info for members' do
