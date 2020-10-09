@@ -2,9 +2,9 @@ require_relative 'test_helper'
 
 describe Channel do
     before do
-      slack_id = "C016J5DP925"
-      name = "getting-help"
-      topic = "Get some Help!"
+      slack_id = "111"
+      name = "random"
+      topic = "random"
       member_count = "79"
       @channel= Channel.new(slack_id, name, topic, member_count)
       @detail = @channel.details
@@ -13,7 +13,7 @@ describe Channel do
       @topic = topic
       @member_count = member_count
 
-      VCR.use_cassette("channels") do
+      VCR.use_cassette("random_channel") do
         @response = Channel.list
         end
     end

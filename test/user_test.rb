@@ -3,9 +3,9 @@ require_relative 'test_helper'
 
 describe User do
     before do
-      slack_id = "U01CT3X9L2C"
-      username = "water_mmmkay"
-      real_name = "Water MmmKay"
+      slack_id = "4"
+      username = "SlackBot"
+      real_name = "SlackBot"
       status_emoji = ''
       name = ""
       @user= User.new(slack_id, username, real_name, status_emoji, name)
@@ -16,7 +16,7 @@ describe User do
       @status_emoji = ""
       @detail = @user.details
 
-      VCR.use_cassette("all the users") do
+      VCR.use_cassette("SlackBot Users") do
         @response = User.list
       end
     end
