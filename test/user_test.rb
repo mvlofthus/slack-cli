@@ -2,7 +2,6 @@ require_relative 'test_helper'
 
 
 describe User do
-  describe 'User instantiation' do
     before do
       slack_id = "U01CT3X9L2C"
       username = "water_mmmkay"
@@ -11,22 +10,27 @@ describe User do
       name = ""
       @user= User.new(slack_id, username, real_name, status_emoji, name)
 
-      # VCR.use_cassette("members") do
-      #   @response = User.list_all
-      # end
-
+      VCR.use_cassette("all the users") do
+        @response = User.list
+      end
     end
 
-    it 'is an instance of User' do
-      expect(@user).must_be_kind_of User
+    describe 'User instantiation' do
+      it 'is an instance of User' do
+        expect(@user).must_be_kind_of User
+      end
+
+       it 'user.list is an instance of an array' do
+        expect(@response).must_be_kind_of Array
+        expect(@response.length).must_be_kind_of Integer
+        expect(@response.length).must_be_close_to 163
+       end
+
+      it 'returns the correct info for members' do
+        expect _(@response[1].slack_id).must_equal "U015QQ2BXFZ"
+        expect _(@response[2].real_name).must_equal "lisa"
+      end
     end
 
-    # it 'user.list is an instance of an array'
-    # expect(User.list).must_be_kind_of Array
-    # expect(User.length).must_be_close_to 1
-    # end
-end
-
 
 end
-
