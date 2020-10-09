@@ -35,7 +35,7 @@ class User < Recipient
   end
 
   def details
-    puts "User found, here's the scoop!\n  Username: #{name} \n  Slack ID: #{slack_id}\n  Real Name: #{real_name}\n  Status Emoji: #{status_emoji}"
+    return puts "User found, here's the scoop!\n  Username: #{name} \n  Slack ID: #{slack_id}\n  Real Name: #{real_name}\n  Status Emoji: #{status_emoji}"
   end
 
 end

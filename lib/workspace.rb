@@ -16,11 +16,11 @@ class Workspace
   end
 
   def list_users
-    return @users, "slack_id", "username", "real_name"
+    return tp @users, "slack_id", "username", "real_name"
   end
 
   def list_channels
-    return @channels, "name", "topic", "member_count", "slack_id"
+    return tp @channels, "name", "topic", "member_count", "slack_id"
   end
 
   def select_user(id)
