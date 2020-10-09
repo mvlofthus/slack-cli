@@ -35,7 +35,7 @@ class Channel < Recipient
   end
 
   def details
-    puts "Channel found, here's the scoop!\n  Slack ID: #{slack_id}\n  Name: #{name}\n  Topic: #{topic}\n  Member Count: #{member_count}"
+    return "Channel found, here's the scoop!\n  Slack ID: #{slack_id}\n  Name: #{name}\n  Topic: #{topic}\n  Member Count: #{member_count}"
   end
 
 end

@@ -8,7 +8,7 @@ describe Recipient do
     @recipient  = Recipient.new(@slack_id, @name)
   end
 
-  describe "constructor" do
+  describe "instantiation" do
     it "creates a new Recipient instance" do
       expect(@recipient).must_be_instance_of Recipient
     end

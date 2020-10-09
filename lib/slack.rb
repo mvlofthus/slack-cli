@@ -19,9 +19,9 @@ def main
 
     case user_input
     when "1", "list users"
-      workspace.list_users
+      tp workspace.list_users
     when "2", "list channels"
-      workspace.list_channels
+      tp workspace.list_channels
     when "3", "select user"
       puts "Please enter User Name or ID"
       user_identifier = gets.chomp.downcase
