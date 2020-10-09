@@ -33,12 +33,14 @@ describe Channel do
       expect _(@response[3].name).must_equal "csmemes"
     end
 
+  describe 'channel details' do
+
     it 'returns a description of a selected channel' do
       expect(@detail).must_equal "Channel found, here's the scoop!\n  Slack ID: #{@slack_id}\n  Name: #{@name}\n  Topic: #{@topic}\n  Member Count: #{@member_count}"
     end
 
-    it 'returns a string' do
+    it 'description returns a string' do
       expect(@detail).must_be_kind_of String
     end
+  end
 end
-
